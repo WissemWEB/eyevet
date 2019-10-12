@@ -1,0 +1,30 @@
+@import '_configuration';
+@import '_header';
+@import '_footer';
+
+#map{
+	height: 600px;
+	@media screen and (max-width: $tablet-width){
+		height: 450px;
+		width: 90%;
+		margin: 20px auto;
+	}
+}
+
+.map_info{
+	padding: 20px;
+	color: #000;
+	font-weight: 600;
+	& > h1{
+		color: $color-brand;
+	}
+	& > p{
+		margin-bottom: 10px;
+		text-align: center;
+		font-size: 15px;
+	}
+	span{
+		color: $color-brand;
+	}
+}
+

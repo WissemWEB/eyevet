@@ -1,0 +1,228 @@
+@import '_configuration';
+@import '_header';
+@import '_footer';
+
+//styling introduction section of the site
+
+.introduction{
+	background: url(../images/introduction-bg.jpg) no-repeat center;
+	background-size: cover;
+	height: 750px;
+	position: relative;
+	overflow: hidden;
+	@media screen and (max-width:$tablet-width){
+		height: 360px;
+	}
+	@media screen and (max-width:$middle-width){
+		display: none;
+	}
+	.introduction_quote{
+		position: absolute;
+		bottom: 10%;
+		left: 50%;
+		transform: translate(-50%,-20%);
+		& > h3{
+			@include font_style('Roboto-Light',22px, #fff);
+			font-weight: 100;
+			text-align: center;
+			@media screen and (max-width:$tablet-width){
+				font-size: 18px;
+			}
+		}
+		& > div{
+			@include font_style('Roboto-LightItalic',18px,#fff);
+			text-align: right;
+			padding-right: 30px;
+			margin-bottom: 25px;
+			@media screen and (max-width:$tablet-width){
+				font-size: 14px;
+			}
+		}
+		& > a{
+			@include font_style('Roboto-Regular',18px, #fff);
+			display: block;
+			width: 300px;
+			border: 2px solid $color-brand;
+			transition: background-color .4s ease; 
+			text-align: center;
+			padding: 10px 0 10px 0;
+			margin: 0 auto;
+			&:hover{
+				background-color: $color-brand;
+			}
+		}
+	}
+}
+
+//styling the main part of the main page
+
+.main{
+	overflow: hidden;
+	& > h1{
+		@include font-style('Roboto-Medium',30px, $color-grey-lighter);
+		margin-top: 90px;
+		@media screen and (max-width:$middle-width){
+			display: none;
+		}
+	}
+	& > a{
+		@include button_further_info;
+		@include button_hover($color-brand-darker);
+		margin-bottom: 120px;
+		@media screen and (max-width:$middle-width){
+			margin-bottom: 60px;	
+			margin-top: 15px;
+			font-size: 12px;
+		}
+	}
+	.main_services{
+		@include flex(space-around, stretch, row nowrap);
+		margin-top: 100px;
+		@media screen and (max-width:$tablet-width){
+			flex-flow: column nowrap;
+		}
+		@media screen and (max-width:$middle-width){
+			margin-top: 0;	
+		}
+		.service{
+			@media screen and (max-width:$tablet-width){
+				@include flex(space-around, stretch, row nowrap);
+			}
+			@media screen and (max-width:$middle-width){
+				margin-bottom: 50px;
+			}
+			h3{
+				@include font_style('Roboto-Medium', 25px, $color-brand-darker);
+				@media screen and (max-width:$middle-width){
+					font-size: 16px;
+					text-align: left;
+				}
+			}
+			li{
+				@include font_style('Roboto-Regular', 15px, $color-grey-lighter);
+				display: block;
+				text-align: center;
+				font-weight: 600;
+				@media screen and (max-width:$middle-width){
+					text-align: left;
+					font-size: 12px;
+				}
+			}
+		}
+		.service_wrapper{
+			@media screen and (max-width:$middle-width){
+				width: 160px;
+			}
+		}
+		.service_image{
+			width: 220px;
+			height: 205px;
+			@media screen and (max-width:$middle-width){
+				height: 120px;
+				width: 100px;
+			}
+		}
+		@each $type in (stethoscope, microscope, injector){
+			.icon_#{$type} {
+				background: url(../icons/#{$type}.png) no-repeat 12px 0;
+				@media screen and (max-width:$middle-width){
+					background-size: 90px 90px;
+					background-position: 10px 25px;
+				}
+			}
+		}
+		.icon_microscope{
+			background-position: 35px 0;
+			@media screen and (max-width:$middle-width){
+				background-position: 10px 25px;
+			}
+		}
+	}
+	.main_eyesight{
+		@include flex(center, center, row nowrap);
+		padding: 150px 0 120px 0;
+		border-top: 1px solid #ccc;
+		@media screen and (max-width:$middle-width){
+			padding: 40px 0 75px 0;
+		}
+		.doctor{
+			margin-right: 10%;
+			@media screen and (max-width:$tablet-width){
+				margin-right: 30px;
+			}
+			@media screen and (max-width:$middle-width){
+				margin-right: 0;
+			}
+			& > h2{
+				@include font_style('Roboto-Regular', 30px, $color-grey-lighter);
+				font-weight: 600;
+				letter-spacing: 0;
+			}
+			& > p{
+				@include font_style('Roboto-Medium', 17px, $color-brand);
+				text-align: center;
+				font-weight: 100;
+			}
+			& > a{
+				@include button_further_info;
+				@include button_hover($color-brand-darker);
+				@media screen and (max-width:$middle-width){
+					font-size: 12px;
+				}
+			}
+		}
+		.doctor_photo{
+			width: 350px;
+			height: 350px;
+			border-radius: 50%;
+			background: url(../images/doctor.jpg) no-repeat center;
+			@media screen and (max-width:$tablet-width){
+				height: 270px;
+				width: 270px;
+			}
+		}
+		.eyesight_about{
+			@include font_style('Roboto-Regular', 16px, $color-grey-lighter);
+			@media screen and (max-width:$tablet-width){
+				font-size: 14px;
+			}
+			@media screen and (max-width:$middle-width){
+				display: none;
+			}
+			& > p{
+				margin-bottom: 30px;
+				max-width: 410px;
+				@media screen and (max-width:$tablet-width){
+					max-width: 300px;
+				}
+			}
+		}
+	}
+	.main_footer{
+		border-top: 1px solid #ccc;
+		padding: 60px 10px 60px 10px;
+		.container{
+			@include flex(space-around, center, row nowrap);
+			@media screen and (max-width:$tablet-width){
+				flex-flow: column nowrap;
+				align-items: center;
+			}
+		}
+		h2{
+			@include font_style('Roboto-Medium', 25px, $color-grey-lighter);
+			@media screen and (max-width:$middle-width){
+				font-size: 20px;
+			}
+		}
+		.animals{
+			width: 320px;
+			height: 132px;
+			background: url(../icons/catdog.png) no-repeat center;
+			@media screen and (max-width:$middle-width){
+				width: 131px;
+				height: 55px;
+				background-size: 131px 55px;
+			}
+		}
+	}
+}

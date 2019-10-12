@@ -1,0 +1,128 @@
+//sass partial to reuse in header on vet site
+
+.header{
+	overflow: hidden;
+	padding: 25px 0 25px 0;
+	@media screen and (max-width: $middle-width){
+		padding: 25px 0 0 0;
+	}
+	.container{
+		@include flex(space-between, center, row wrap);
+		@media screen and (max-width:$tablet-width){
+			flex-flow: column nowrap;
+			align-items: center;
+		}
+	}
+	.header_logo{
+		& > a{
+			@include font_style('PTSans',30px,$color-grey);
+			height: 80px;
+			line-height: 30px;
+			padding-left: 100px;
+			background: url(../icons/logo.png) no-repeat 0 0;
+			@media screen and (max-width:$middle-width){
+				height: 40px;
+				padding-left: 60px;
+				margin-bottom: 15px;
+				line-height: 15px;
+				font-size: 15px;
+				background-size: 29px 32px;
+				background-position: 15px 2px;
+			}
+			@media screen and (min-width: $middle-width){
+				margin-left: 20px;
+			}
+		}
+		@media screen and (max-width:$tablet-width){
+			align-self: flex-start;
+		}
+	}
+	.header_menu{
+		 display: none;
+		 position: absolute;
+		 right: 30px;
+		 top: 30px;
+		 width: 23px;
+		 height: 20px;
+		 @media screen and (max-width:$middle-width){
+		 	display: block;
+		}
+		& > span{
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 4px;
+			border-radius: 3px;
+			background-color: $color-grey;
+			transition: all ease .2s;
+		}
+		.top{
+			top: 0;
+			transform-origin: 50% 50%;
+			&.clicked{
+				top: 50%;
+				transform: rotate(45deg);
+			}
+		}
+		.middle{
+			top: 8px;
+			&.clicked{
+				opacity: 0;
+				width: 0;
+			}
+		}
+		.bottom{
+			top: 16px;
+			transform-origin: 50% 50%;
+			&.clicked{
+				top: 50%;
+				transform: rotate(-45deg);
+			}
+		}
+
+	}
+	.header_navigation{
+		text-align: center;
+		width: 50%;
+		@media screen and (max-width:$tablet-width){
+			align-self: center;
+			width: 100%;
+		}
+		@media screen and (max-width:$middle-width){
+			width: 100%;
+			height: 0px;
+			transition: height ease .3s;
+			background-color: $color-brand-darker;
+			&.show_mobile{
+				height: 140px;
+			}
+		}
+		ul{
+			@include flex(space-around, stretch, row nowrap);
+			@media screen and (max-width: $middle-width){
+				flex-flow: column nowrap;
+				align-items: center;
+			}
+		}
+		li{
+			display: block;
+			@media screen and (max-width: $tablet-width){
+				margin-top: 10px;
+			}
+			a {
+				@include font_style('Roboto-Medium',20px, $color-grey);
+				letter-spacing: 0px;
+				&:hover{
+					color: $color-brand;
+				}
+				&.active{
+					color: $color-brand;
+				}
+				@media screen and (max-width:$middle-width){
+					font-size: 16px;
+					color: #fff;
+				}
+			}
+		}
+	}
+}

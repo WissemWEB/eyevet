@@ -1,0 +1,210 @@
+@import '_configuration';
+@import '_header';
+@import '_footer';
+@import '_baguetteBox';
+
+.introduction{
+	height: 650px;
+	overflow:  hidden;
+	@include flex(center,stretch, row nowrap);
+	@media screen and (max-width: $tablet-width){
+		height: 475px;
+	}
+	@media screen and (max-width: $middle-width){
+		flex-flow: column nowrap;
+		height: 400px;
+	}
+	.introduction_photo{
+		position: relative;
+		width: 40%;
+		background: url(../images/nesterchuk.jpg) no-repeat center;
+		background-size: cover;
+		@media screen and (max-width: $tablet-width){
+			width: 50%;
+		}
+		@media screen and (max-width: $middle-width){
+			width: 100%;
+			height: 300px;
+			background-position: 0 -75px;
+		}
+		.mobile{
+			@include font-style('Roboto-Regular', 24px, #fff);
+			display: none;
+			position: absolute;
+			bottom: 5%;
+			margin-left: 25px;
+			@media screen and (max-width: $middle-width){
+				display: block;
+			}
+		}
+	}
+	.introduction_info{
+		position: relative;
+		width: 60%;
+		background-color: $color-brand-darker;
+		@media screen and (max-width: $tablet-width){
+			width: 50%;
+		}
+		@media screen and (max-width: $middle-width){
+			width: 100%;
+			height: 100px;
+			background-color: $color-brand;
+		}
+	}
+	.data {	
+		position: absolute;
+		top: 50%;
+		left: 40%;
+		transform: translate(-50%, -50%);
+		@media screen and (max-width: $middle-width){
+			position: static;
+			transform: none;
+		}
+		& > h1{
+			@include font-style("Roboto-Regular", 30px, #fff);
+			margin: 0;
+			text-align: left;
+			font-weight: 500;
+			@media screen and (max-width: $tablet-width){
+				font-size: 20px;
+			}
+			@media screen and (max-width: $middle-width){
+				display: none;
+			}
+		}
+		.name{
+			@include font-style("Roboto-Regular", 25px, $color-brand);
+			margin-top: 0;
+			@media screen and (max-width: $tablet-width){
+				font-size: 20px;
+			}
+			@media screen and (max-width: $middle-width){
+				display: none;
+			}
+		}
+		& > p{
+			@include font-style("Roboto-Light", 18px, #fff);
+			margin-top: 30px;
+			@media screen and (max-width: $tablet-width){
+				font-size: 15px;
+			}
+			@media screen and (max-width: $middle-width){
+				margin: 10px 0 0 25px;
+			}
+		}
+	}
+}
+
+
+.experience_grid{
+	@include flex(center, center, column nowrap);
+	overflow: hidden;
+	position: relative;
+	padding: 65px 0 65px 0;
+  	border-bottom: 40px solid $color-brand;
+  	&:before, &:after {
+		content: "";
+		position: absolute;
+		background-image: -ms-linear-gradient(top, #FFFFFF 0%, #2885FF 100%);
+		background-image: -moz-linear-gradient(top, #FFFFFF 0%, #2885FF 100%);
+		background-image: -o-linear-gradient(top, #FFFFFF 0%, #2885FF 100%);
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(100, #2885FF));
+		background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #2885FF 100%);
+		background-image: linear-gradient(to bottom, #FFFFFF 0%, #2885FF 100%);
+		top: 0px;
+		bottom: 0px;
+		width: 40px;
+  	}
+  	&:before {
+ 		left: 0;
+	}
+	&:after {
+ 		right: 0;
+	}
+	@media screen and (max-width: $tablet-width){
+		border: none;
+		&:after, &:before{
+			display: none;
+		}
+	}
+	.experience_grid_item{
+		@include flex(center, center, row nowrap);
+		margin-bottom: 25px;
+		@media screen and (max-width: $middle-width){
+			flex-flow: column nowrap;
+		}
+	}
+	.year{
+		margin: 0 30px 0 30px;
+		@include font-style('Roboto-Bold', 85px , $color-brand);
+		@media screen and (max-width: $tablet-width){
+			margin: 0 15px 0 15px;
+			font-size: 60px;
+		}
+		@media screen and (max-width: $middle-width){
+			order: 1;
+			font-size: 35px;
+		}
+	}
+	.info{
+		@media screen and (max-width: $middle-width){
+			order: 2;
+		}
+		ul{
+			@include font-style('Roboto-Regular', 16px , $color-grey-lighter);
+			width: 490px;
+			font-weight: 100;
+			list-style-image: none;
+			list-style-type: disc;
+			list-style-position: inside;
+			text-align: left;
+			@media screen and (max-width: $tablet-width){
+				font-size: 14px;
+				max-width: 300px;
+			}
+			@media screen and (max-width: $middle-width){
+				text-align: center;
+			}
+			@media screen and (max-width: $map-width){
+				width: 400px;
+			}
+			li{
+				display: list-item;
+				line-height: 23px;
+				@media screen and (max-width: $middle-width){
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+
+.sertificates{
+	overflow: hidden;
+	margin: 100px auto;
+	@media screen and (max-width: $map-width){
+		display: none;
+	}
+	& > h1{
+		@include font-style('Roboto-Medium', 30px , $color-grey-lighter);
+	}
+	.gallery{
+		@include flex(space-around, center, row wrap);
+		margin-top: 50px;
+		& > a{
+			overflow: hidden;
+			display: block;
+			width: 350px;
+			height: 300px;
+			border: 1px solid #ccc;
+			margin-bottom: 20px;
+			&.empty{
+				border: none;
+			}
+		}
+		img{
+			width: 100%;
+		}
+	}
+}

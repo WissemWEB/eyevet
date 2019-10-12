@@ -1,0 +1,132 @@
+//sass partial for footer on pages of vet site
+
+.footer{
+	overflow: hidden;
+	padding: 60px 0 75px 0;
+	background-color: $color-brand-darker;
+	position: relative;
+	@media screen and (max-width:$middle-width){
+		div {
+			width: 245px;
+		}
+	}
+	span{
+		@include font_style('Roboto-Regular', 20px, $color-brand);
+		font-weight: 600;
+		@media screen and (max-width:$middle-width){
+			font-size: 16px;
+		}
+	}
+	.container{
+		@include flex(space-between, center, row wrap);
+		@media screen and (max-width:$tablet-width){
+			flex-flow: column nowrap;
+		}
+		@media screen and (min-width: $map-width){
+			padding: 0 20px 0 20px;
+		}
+	}
+	.footer_map{
+		width: 400px;
+		height: 400px;
+		border-radius: 250px;
+		background: url(../images/map.png) no-repeat center;
+		@media screen and (max-width:$map-width + 2){
+			display: none;
+		}
+	}
+	.footer_address{
+		@include font_style('Roboto-Regular', 20px, #fff);
+		flex-grow: 2;
+		margin-left: 40px;
+		@media screen and(max-width: $tablet-width){
+			flex-grow: 0;
+			margin-left: 0;
+			align-self: center;
+			margin-top: 30px;
+			order: 2;
+		}
+		@media screen and (max-width:$middle-width){
+			font-size: 16px;
+		}
+		p{
+			margin-top: 30px;
+			@media screen and (max-width: $tablet-width){
+				margin-top: 15px;
+			}
+		}
+		.mobile_phone{
+			display: block;
+			color: #fff;
+			margin-top: 30px;
+			font-weight: 500;
+			@media screen and (max-width: $tablet-width){
+				margin-top: 15px;
+			}
+		}
+	}
+	.footer_contacts{
+		position: relative;
+		order: 4;
+		@media screen and (max-width: $map-width){
+			align-self: flex-start;
+			margin-right: 40px;
+		}
+		@media screen and (max-width: $tablet-width){
+			order: 1;
+			align-self: center;
+		}
+		@media screen and (max-width:$middle-width){
+			margin-right: 0;
+		}
+		p{
+			@include font_style('Roboto-Regular', 25px, #fff);
+			margin-bottom: 10px;
+			text-align: right;
+			@media screen and (max-width:$tablet-width){
+				font-size: 20px;
+				text-align: left;
+			}
+			@media screen and (max-width:$middle-width){
+				font-size: 16px;
+			}
+		}
+		a{
+			@include font_style('Roboto-Regular', 25px, #fff);
+			text-align: right;
+			@media screen and (max-width: $tablet-width){
+				font-size: 20px;
+			}
+			@media screen and (max-width: $middle-width){
+				font-size: 16px;
+			}
+		}
+		.facebook{
+			width: 50px;
+			height: 50px;
+			background: url(../icons/facebook.png) no-repeat 0 0;
+			background-size: 50px 50px;
+			transition: all .2s;
+			margin: 20px 0 30px auto;
+			display: block;
+			&:hover{
+				background: url(../icons/facebook_hover.png) no-repeat 0 0;
+				background-size: 50px 50px;
+			}
+			@media screen  and (max-width: $tablet-width){
+				margin: 20px auto 0 0;
+			}
+		}
+	}
+	.footer_copyright{
+		@include font_style('Roboto-Medium', 16px, $color-brand);
+		position: absolute;
+    	bottom: 5%;
+		left: 50%;
+		transform: translateX(-50%);
+    	text-align: center;
+		@media screen and (max-width:$middle-width){
+			font-size: 14px;
+		}
+	}
+}

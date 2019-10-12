@@ -1,0 +1,13 @@
+@import '_configuration';
+
+body{
+	height: 100%;
+	background-color: $color-brand-darker;
+}
+
+.noflex{
+	@include font-style('Roboto-Medium', 25px, #fff);
+	font-weight: 500;
+	margin: 100px auto;
+	text-align: center;
+}

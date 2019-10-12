@@ -1,0 +1,139 @@
+//brand-book colors
+
+$color-grey: #404041;
+$color-brand: #2885ff;
+$color-grey-lighter: #333;
+$color-brand-darker: #0c4da2;
+
+//widths for tablet, mobile, fixing errors
+
+$mobile-width: 320px;
+$tablet-width: 768px;
+$middle-width: 500px;
+$map-width: 1150px;
+
+//mixins
+
+@mixin font_style($family, $size, $color){
+	font:{
+		size: $size;
+		family: $family;
+	}
+	color: $color;
+}
+
+@mixin flex($justify, $align, $flow){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-flow: $flow;
+}
+
+@mixin button_further_info(){
+    @include font_style('Roboto-Regular', 15px, #fff);
+    text-align: center;
+    background: $color-brand;
+    width: 200px;
+    padding: 15px 0 15px 0;
+    margin: 65px auto 0 auto;
+    display: block;
+}
+
+@mixin button_hover($color){
+    & { 
+        position: relative;
+        transition: color .4s;
+        z-index: 1;
+    }
+    &:after{
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 101%;
+        opacity: 0;
+        background-color: $color;
+        transform: translate(-50%,-50%);
+        transition: all .4s;
+        z-index: -1;
+        @media screen and(max-width: $middle-width){
+            content: none;
+        }
+    }
+    &:hover:after{
+        width:100%;
+        opacity: 1;
+    }
+}
+
+
+//font-face rules for basic page fonts
+
+@font-face{
+    font-family: "PTSans";
+    src: url(../fonts/PTSansCaptionBold.woff) format('opentype');
+}
+@font-face{
+    font-family: "Roboto-Regular";
+    src: url(../fonts/Roboto-Regular.woff) format('woff');
+}
+@font-face{
+    font-family: "Roboto-Medium";
+    src: url(../fonts/Roboto-Medium.woff) format('woff');
+}
+@font-face{
+    font-family: "Roboto-Light";
+    src: url(../fonts/Roboto-Light.woff) format('woff');
+}
+@font-face{
+    font-family: "Roboto-LightItalic";
+    src: url(../fonts/Roboto-LightItalic.woff) format('woff');
+}
+
+@font-face{
+    font-family: "Roboto-Bold";
+    src: url(../fonts/Roboto-Bold.woff) format('woff');
+}
+
+
+//basic resets for default styles
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding:0;
+    background-color: #fff;
+}
+ul{
+    margin: 0;
+    padding:0;
+    list-style-type: none;
+    li{
+        display: inline-block;
+    }
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+p{
+    margin: 0;
+}
+h1,h2,h3,h4{
+    text-align: center;
+}
+.container{
+    max-width: 1500px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+a[href^=tel] {
+    text-decoration:inherit;
+    color: inherit;
+}
+

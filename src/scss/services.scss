@@ -1,0 +1,109 @@
+@import "_configuration";
+@import "_header";
+@import "_footer";
+
+
+.services{
+	margin-bottom: 100px;
+	@media screen and ( max-width: $middle-width){
+		margin-bottom: 15px;
+	}
+	& > h1{
+		@include font-style("Roboto-Medium", 25px, $color-grey);
+		margin: 5px;
+	}
+	.services_service{
+		position: relative;
+		margin-top: 50px;
+		& > h3{
+			@include font-style("Roboto-Light", 25px, $color-brand);
+			padding: 0 0 30px 50px;
+			margin: 10px;
+			border-bottom: 1px solid #ccc;
+			text-align: left;
+			@each $type in (stethoscope, microscope, injector){
+				&.icon_#{$type}:after {
+					content: "";
+					display: inline-block;
+					height: 50px;
+					width: 50px;
+					margin: 0 0 -15px 25px;
+					background: url(../icons/#{$type}.png) no-repeat 0 0;
+					background-size: 50px 50px;
+					@media screen and (max-width: $middle-width){
+						content: none;
+					}
+				}
+		 	}
+		 	@media screen and (max-width: $tablet-width){
+		 		padding: 0 0 15px 50px;
+		 		text-align: center;
+		 	}
+		 	@media screen and (max-width: $middle-width){
+		 		padding-left: 0;
+		 	}
+		}
+		@media screen and (max-width: $middle-width){	
+		 	margin: 20px 0 20px 0;
+		 }
+		.mobile_arrow{
+	 		position: absolute;
+	 		right: 30px;
+	 		top: 8px;
+	 		display: none;
+	 		height: 20px;
+	 		width: 20px;
+	 		background: url(../icons/arrow.png) no-repeat 0 0;
+	 		background-size: 20px 20px;
+	 		transition: ease transform .2s;
+	 		@media screen and (max-width: $middle-width){
+	 			display: block;
+	 		}
+	 		&.show{
+	 			transform: rotate(180deg);
+	 		}
+	 	}
+	}
+}
+.service_grid{
+	@include flex(space-around, stretch, row wrap);
+	@media screen and (max-width: $middle-width){
+		display: none;
+	}
+	&.hidden{
+		justify-content: center;
+		display: flex;
+	}
+	.service_grid_item{
+		@include font-style('Roboto-Light', 16px, $color-grey);
+		width: 30%;
+		@media screen and (max-width: $tablet-width){
+			width: 45%;
+			text-align: center;
+		}
+		@media screen and (max-width: $middle-width){
+			width: 90%;
+		}
+		& > h4{
+			@include font-style('Roboto-Medium', 25px, $color-grey );
+			font-weight: 500;
+			margin-bottom: 20px;
+		}
+		.image{
+			height: 400px;
+			width: 100%;
+			margin: 0 auto;
+			margin-top: 50px;
+			background-color: #000;
+			@each $service in (staining, biomicroscopy, direct, indirect, test, tonometry, cytology, gonioscopy, use, cornea, eyelid, glaucoma, prosthetic, cataract, certificate, horse, exotic){
+				&.#{$service}{
+					background: url(../images/#{$service}.jpg) no-repeat center;
+					background-size: cover;
+				}
+		 	}
+		 	@media screen and(max-width: $middle-width){
+		 		height: 250px;
+		 	}
+		}
+	}
+}
